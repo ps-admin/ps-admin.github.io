@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on psadm.in</title>
+    <link>http://ps-admin.github.io/posts/</link>
+    <description>Recent content in Posts on psadm.in</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Mar 2016 11:59:28 -0500</lastBuildDate>
+    <atom:link href="http://ps-admin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>first</title>
+      <link>http://ps-admin.github.io/posts/first/</link>
+      <pubDate>Fri, 04 Mar 2016 11:59:28 -0500</pubDate>
+      
+      <guid>http://ps-admin.github.io/posts/first/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
