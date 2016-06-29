@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+  <head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="VooDoo is a command line application to help automate some PeopleSoft administration activities that are typically performed locally.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="author" content="JR Bing">
+
+    <title>Voodoo &middot; psadm.in </title>
+
+    <link rel="canonical" href="https://ps-admin.github.io/" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="">
+
+    <link rel="stylesheet" type='text/css' href="https://ps-admin.github.io/css/app.css"/>
+
+  </head>
+
+
+<body>
+
+      <div class="title-bar" data-responsive-toggle="navigation-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+
+    <div class="top-bar" id="example-menu">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li><a href="/">About</a></li>
+          
+          <li class="has-submenu">
+            <a href="/projects">Projects</a>
+            <ul class="submenu menu vertical" data-submenu>
+              
+                
+                <li><a href="/projects/voodoo/">Voodoo</a></li>
+                
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+     <div class="callout large">
+      <div class="row column text-center">
+        <h1 class="site-heading"><a href="https://ps-admin.github.io/" alt="psadm.in">psadm.in</a></h1>
+      </div>
+    </div>
+
+
+
+
+  <div class="row medium-8 large-7 columns">
+    <div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
+      <div class="medium-8 columns">
+        <div class="callout" data-equalizer-watch>
+          <h2>Voodoo</h2>
+          <p>VooDoo is a command line application to help automate some PeopleSoft administration activities that are typically performed locally.</p>
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="callout" data-equalizer-watch>
+          
+          <img class="thumbnail" src="https://ps-admin.github.io/images/voodoo.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row medium-8 large-7 columns">
+    <hr>
+    
+
+<h3 id="about">About</h3>
+
+<p>VooDoo is a command line application to help automate some PeopleSoft
+administration activities that are typically performed locally. It
+provides a simple command line interface for interacting with your local
+PeopleTools installation using predefined settings for each of your
+environments. For example, migrating a project between two environments
+using VooDoo is as simple as issuing the following command:</p>
+
+<pre><code class="language-bat">C:\&gt; voodoo migrate TEST_PROJECT HRDEV HRTEST
+</code></pre>
+
+<h3 id="features">Features</h3>
+
+<p>Some Features include:</p>
+
+<ul>
+<li>Generate HTML compare reports for projects</li>
+<li>Migrate projects between databases</li>
+<li>Build project definitions</li>
+<li>Archive project to file</li>
+<li>Execute Application Engine programs locally</li>
+<li>Execute SQR’s locally</li>
+</ul>
+
+<h3 id="installation">Installation</h3>
+
+<p>In order to run VooDoo, you’ll first need the following:</p>
+
+<ul>
+<li>Ruby 1.9.2 or higher</li>
+<li>Local installation of PeopleTools (developed and tested using 8.49)</li>
+<li>Windows XP or higher (Developed using Windows 7, tested on XP)</li>
+<li>PeopleSoft Environments running on Oracle Database</li>
+</ul>
+
+<h4 id="next">Next</h4>
+
+<p>VooDoo is packaged as a ruby gem, and can be installed via the following command:</p>
+
+<pre><code class="language-bat">C:\&gt; gem install ps-voodoo
+</code></pre>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Once installed, you’ll first need to setup the global configuration:</p>
+
+<pre><code class="language-bat">C:\&gt;voodoo config
+
+### Global Configuration Settings ###
+Local tools directory: C:\psoft\pt84927
+Default output directory for migration data: X:\output
+</code></pre>
+
+<p>Next you’ll want to add a few environments:</p>
+
+<pre><code class="language-bat">C:\&gt;voodoo add VDDEV
+
+### Appdesigner/Datamover/AppEngine Settings ###
+Database type: |ORACLE| ORACLE
+Application username: VD1
+
+Would you like to archive migration output files for this environment? (y/n) n
+
+### SQR Settings ###
+Database username: |sysadm| sysadm
+PS_HOME directory: V:\VDDEV
+
+C:\&gt;voodoo add VDTEST
+
+### Appdesigner/Datamover/AppEngine Settings ###
+Database type: |ORACLE| ORACLE
+Application username: VD1
+
+Would you like to archive migration output files for this environment? (y/n) y
+Archive destination: X:\archive
+
+### SQR Settings ###
+Database username: |sysadm|
+PS_HOME directory: V:\VDTEST
+</code></pre>
+
+<p>Global and environment configuration data is stored in YAML files under the .voodoo folder in the user’s HOME directory. When commands are issued to VooDoo, it uses the environment configuration information to pass command line arguments to the local executable. In some situations the Windows registry is updated to set options that cannot be passed via the command line (project build output destinations, datamover output destinations).</p>
+
+<h3 id="usage">Usage</h3>
+
+<p>To run a compare report:</p>
+
+<pre><code class="language-bat">C:\&gt;voodoo compare COMPARE_TEST VDDEV VDTEST
+Application password for VDDEV: **********
+Application password for VDTEST: **********
+Name for output folder: VOODOO_TEST
+07/18/2011 13:09:54: Creating compare reports for SCRIPTING_TEST between FNDEV and FNSPTB
+</code></pre>
+
+<p>If successful, the generated HTML output of the compare report will be opened in your default browser. To see what else you can do, run:</p>
+
+<pre><code class="language-bat">C:\&gt;voodoo help
+NAME:
+
+    Voodoo
+
+DESCRIPTION:
+
+    Black Magic Utility for PeopleSoft Administration
+
+COMMANDS:
+
+    add                  adds an environment to the configuration file
+    archive              copies a project to file from the specified environment
+    build                builds a project definition in the specified environment
+    compare              create a compare report for the specified project
+    config               create global configuration settings
+    help                 Display global or [command] help documentation.
+    list                 Outputs a list of configured environments
+    migrate              migrates a project between environments
+    remove               removes an environment from the configuration file
+    run appengine        runs an appengine against the specified environment
+    run sqr              runs the specified sqr locally
+    show                 shows configuration details for an environment
+    template datafix     creates a datafix folder with template files
+
+GLOBAL OPTIONS:
+
+    -h, --help
+        Display help documentation
+
+    -v, --version
+        Display version information
+
+    -t, --trace
+        Display backtrace when an error occurs
+</code></pre>
+
+  </div>
+
+      <script src="https://ps-admin.github.io/js/app.js"></script>
+
+
+</body>
+
+</html>

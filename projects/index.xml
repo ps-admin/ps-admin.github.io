@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>psadm.in</title>
-    <link>https://ps-admin.github.io/</link>
-    <description>Recent content on psadm.in</description>
+    <title>Projects on psadm.in</title>
+    <link>https://ps-admin.github.io/projects/</link>
+    <description>Recent content in Projects on psadm.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2016, JR Bing; all rights reserved.</copyright>
     <lastBuildDate>Thu, 24 Mar 2016 11:59:28 -0500</lastBuildDate>
-    <atom:link href="https://ps-admin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ps-admin.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Voodoo</title>
